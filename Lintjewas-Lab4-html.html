@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>INST377 Lab 4</title>
+        <link rel="stylesheet" href="Lintjewas-Lab4-Css.css">
+    </head>
+
+    <body id="body" style ="background-color: aquamarine;">
+        <h1 id="heading">INST377 - Lab 4</h1>
+
+        <!--Name:-->
+        <div id="div1">
+            <form name="alertForm" onsubmit="return(alertFunction())">
+                <label>Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <button type="submit" id="alertButton">Alert Me!</button>
+            </form>
+    
+            <script type="text/javascript">
+                function alertFunction(){
+                    const firstName = document.alertForm.firstName.value;
+                    alert('Hello ' + firstName);
+                    }
+            </script>
+
+        </div>
+
+        <!--Change Color-->
+        <div id="div2">
+            <button onclick="changeColor()">Change Color</button>
+            
+            <script type="text/javascript">
+                function changeColor()  {
+                    if(document.getElementById('body').style.backgroundColor == 'red') {
+                        const t = document.getElementById('body').style.backgroundColor = 'aquamarine';
+                    } else {
+                    const t = document.getElementById('body').style.backgroundColor = 'red';
+                    }
+                }
+            </script>
+        </div>
+
+        <!--Text Tester-->
+        <div id="div3">
+            <form name="contactForm" onsubmit="return(formValidation())">
+                <label>Text Tester:</label>
+                <input type="text" id="text">
+                <button type="submit" id="ValidateText">Validate Text</button>
+            </form>
+    
+            <script type="text/javascript">
+                function formValidation() {
+                    const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    if(document.contactForm.text.value === "") {
+                        return false;
+                    }
+                    if (validationRegex.test(document.contactForm.text.value)) {
+                        alert('How about.... nah :(')
+                        return false
+                    }
+    
+                    return true;
+                }
+            </script>
+        </div>
+
+        <!--Add Text-->
+        <div id="div4">
+            <button id="addTextButton">Add Text</button>
+
+            <script>
+                document.getElementById('addTextButton').onclick = function(){
+                    const heading = document.getElementById('heading');
+                    heading.textContent += ' - Adding Text';
+                }
+            </script>
+
+        </div>
+
+    </body>
+</html>
